@@ -3,10 +3,7 @@ package basic;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.*;
 
 public class Main {
     public static final String RESET = "\u001B[0m";
@@ -15,7 +12,7 @@ public class Main {
     public static final String RED_BOLD = "\033[1;91m";
 
 
-    private static Album findAlbum(String albumName, ArrayList<Album> albumList) {
+    private static Album findAlbum(String albumName, List<Album> albumList) {
         for (int i = 0; i < albumList.size(); i++) {
             if (albumList.get(i).getNameOfAlbum().equalsIgnoreCase(albumName)) {
                 return albumList.get(i);
@@ -24,7 +21,7 @@ public class Main {
         return null;
     }
 
-    private static Song findSong(String songName, ArrayList<Album> albumList) {
+    private static Song findSong(String songName, List<Album> albumList) {
         for (int i = 0; i < albumList.size(); i++) {
             Album album = albumList.get(i);
             for (int j = 0; j < album.getAlbumListOfSongs().size(); j++) {
@@ -36,7 +33,7 @@ public class Main {
         return null;
     }
 
-    private static boolean addAlbum(String albumName, ArrayList<Album> albumList) {
+    private static boolean addAlbum(String albumName, List<Album> albumList) {
         if (isInteger(albumName) || albumName.equals("")) {
             System.out.println("\n**WRONG_INPUT - you need to enter again the name of the album.\n");
             return false;
@@ -52,7 +49,7 @@ public class Main {
         }
     }
 
-    private static boolean removeAlbum(String albumName, ArrayList<Album> albumList) {
+    private static boolean removeAlbum(String albumName, List<Album> albumList) {
         boolean var = false;
         Album album = findAlbum(albumName.toLowerCase(), albumList);
         if (album != null) {
@@ -64,7 +61,7 @@ public class Main {
         return var;
     }
 
-    private static void removeAlbumsFromTheList(ArrayList<Album> albumList) throws IOException {
+    private static void removeAlbumsFromTheList(List<Album> albumList) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         boolean check = false;
         while (!check) {
@@ -79,7 +76,7 @@ public class Main {
         }
     }
 
-    private static void printAlbums(ArrayList<Album> albumList) {
+    private static void printAlbums(List<Album> albumList) {
         System.out.print("*We have the following albums available for us: \n");
         if (albumList.isEmpty()) {
             System.out.println("\n*No albums in albums list.\n");
@@ -90,7 +87,7 @@ public class Main {
         }
     }
 
-    private static void printSongsInAlbum(String nameOfAlbum, ArrayList<Album> albumList) {
+    private static void printSongsInAlbum(String nameOfAlbum, List<Album> albumList) {
         Album album = findAlbum(nameOfAlbum, albumList);
         if (album != null) {
             System.out.print("\nAlbum: " + album.getNameOfAlbum() + "\nSongs:\n");
@@ -100,7 +97,7 @@ public class Main {
         }
     }
 
-    private static int findIndex(String albumName, ArrayList<Album> albumList) {
+    private static int findIndex(String albumName, List<Album> albumList) {
         for (int i = 0; i < albumList.size(); i++) {
             if (albumList.get(i).getNameOfAlbum().equalsIgnoreCase(albumName)) {
                 return i;
@@ -109,7 +106,7 @@ public class Main {
         return -1;
     }
 
-    private static void replaceAlbum(String oldAlbumName, String newAlbumName, ArrayList<Album> albumList) {
+    private static void replaceAlbum(String oldAlbumName, String newAlbumName, List<Album> albumList) {
         int position = findIndex(oldAlbumName, albumList);
         removeAlbum(oldAlbumName, albumList);
         albumList.add(position, new Album(newAlbumName, new ArrayList<>()));
@@ -156,7 +153,7 @@ public class Main {
         return false;
     }
 
-    private static void fillAlbumList(ArrayList<Album> albumList) throws IOException {
+    private static void fillAlbumList(List<Album> albumList) throws IOException {
         boolean check = false;
         int i = 0;
         String varInput = null;
@@ -199,7 +196,7 @@ public class Main {
         }
     }
 
-    private static void addSongInAlbum(ArrayList<Album> albumList, String nameOfAlbum, int i) throws IOException {
+    private static void addSongInAlbum(List<Album> albumList, String nameOfAlbum, int i) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         boolean std = false;
         while (!std) {
@@ -228,7 +225,7 @@ public class Main {
         }
     }
 
-    private static void enterSongs(ArrayList<Album> albumList) throws IOException {
+    private static void enterSongs(List<Album> albumList) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         boolean check = false;
         while (!check) {
@@ -268,7 +265,7 @@ public class Main {
         }
     }
 
-    private static void printSongs(ArrayList<Album> albumList) throws IOException {
+    private static void printSongs(List<Album> albumList) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         boolean var = false;
         while (!var) {
@@ -286,7 +283,7 @@ public class Main {
         }
     }
 
-    private static void printPlayList(LinkedList<Song> playList) {
+    private static void printPlayList(List<Song> playList) {
         Iterator<Song> irt = playList.iterator();
         System.out.println("Songs in the playList: ");
         while (irt.hasNext()) {
@@ -294,7 +291,7 @@ public class Main {
         }
     }
 
-    private static void addSongsPlayList(LinkedList<Song> playList, ArrayList<Album> albumList) throws IOException {
+    private static void addSongsPlayList(List<Song> playList, List<Album> albumList) throws IOException {
         ListIterator<Song> prs = playList.listIterator();
         boolean check = false;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -334,7 +331,7 @@ public class Main {
         }
     }
 
-    private static Song findSongInPlaylist(LinkedList<Song> playList, String nameOfSong) {
+    private static Song findSongInPlaylist(List<Song> playList, String nameOfSong) {
         for (int i = 0; i < playList.size(); i++) {
             if (playList.get(i).getTitle().equalsIgnoreCase(nameOfSong)) {
                 return playList.get(i);
@@ -358,7 +355,7 @@ public class Main {
 
     }
 
-    private static void removeSongFromAlbum(ArrayList<Album> albumList) throws IOException {
+    private static void removeSongFromAlbum(List<Album> albumList) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         boolean check = false;
 
@@ -388,7 +385,7 @@ public class Main {
         }
     }
 
-    private static void removeSongsFromThePlayList(LinkedList<Song> playList) throws IOException {
+    private static void removeSongsFromThePlayList(List<Song> playList) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ListIterator<Song> ltr = playList.listIterator();
         boolean check = false;
@@ -413,7 +410,7 @@ public class Main {
         }
     }
 
-    public static void playing(LinkedList<Song> playList) throws IOException {
+    public static void playing(List<Song> playList) throws IOException {
         ArrayList<Album> albumList = new ArrayList<>();
         ListIterator<Song> iter = playList.listIterator();
         boolean forward = true;
@@ -502,7 +499,7 @@ public class Main {
         }
     }
 
-    private static void forwardBack(LinkedList<Song> playList) throws IOException {
+    private static void forwardBack(List<Song> playList) throws IOException {
         ListIterator<Song> iter = playList.listIterator();
         boolean forward = true;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -575,8 +572,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         playing(new LinkedList<Song>());
-
-
     }
 }
 

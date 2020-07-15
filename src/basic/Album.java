@@ -1,22 +1,22 @@
 package basic;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Album {
 
     private String nameOfAlbum;
-    private ArrayList<Song> albumListOfSongs;
+    private List<Song> albumListOfSongs;
 
-    public Album(String nameOfAlbum, ArrayList<Song> albumListOfSongs) {
+    public Album(String nameOfAlbum, List<Song> albumListOfSongs) {
         this.nameOfAlbum = nameOfAlbum;
         this.albumListOfSongs = albumListOfSongs;
     }
 
-    public ArrayList<Song> getAlbumListOfSongs() {
+    public List<Song> getAlbumListOfSongs() {
         return albumListOfSongs;
     }
 
-    public void setAlbumListOfSongs(ArrayList<Song> albumListOfSongs) {
+    public void setAlbumListOfSongs(List<Song> albumListOfSongs) {
         this.albumListOfSongs = albumListOfSongs;
     }
 
