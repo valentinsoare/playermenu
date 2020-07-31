@@ -30,8 +30,7 @@ public class Album {
 
     public void addSongInAlbum(String nameOfSong, Integer duration) {
         Song song = findSong(nameOfSong);
-        if (song != null) {
-        } else {
+        if (song == null) {
             Song alb = new Song(nameOfSong, duration);
             this.albumListOfSongs.add(alb);
         }
