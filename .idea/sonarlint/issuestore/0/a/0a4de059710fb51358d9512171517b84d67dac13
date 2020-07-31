@@ -1,12 +1,5 @@
 
+J	java:S108!")Either remove or fill this block of code.(û®ş’ıÿÿÿÿ8¸°ÊÕ³.
 _
 java:S22593"BA "NullPointerException" could be thrown; "song" is nullable here.(—¿Áø8‰”ğñ´.
-J	java:S108!")Either remove or fill this block of code.(û®ş’ıÿÿÿÿ8¸°ÊÕ³.
-
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ñ—8¸°ÊÕ³.
 U	java:S106F"9Replace this use of System.out or System.err by a logger.(†µæÎ8¸°ÊÕ³.
-˜
-java:S1319
-"{The type of the "albumListOfSongs" object should be an interface such as "List" rather than the implementation "ArrayList".(Ş£ÿâ8¸°ÊÕ³.
-
-java:S1319"{The type of the "albumListOfSongs" object should be an interface such as "List" rather than the implementation "ArrayList".(“ûùéøÿÿÿÿ8¸°ÊÕ³.

@@ -510,11 +510,11 @@ public class Main {
             String line = reader.readLine().trim();
             if (isInteger(line) || line.equals("")) {
                 System.out.println("\n*Enter your option again.\n");
-            } else if (playList.isEmpty()) {
-                System.out.println("\n*PlayList is empty, no songs.\n");
             } else if (line.equalsIgnoreCase("q")) {
                 System.out.println("\n*Exiting...\n");
                 quit = true;
+            } else if (playList.isEmpty()) {
+                System.out.println("\n*PlayList is empty, no songs.\n");
             } else {
                 if (line.equalsIgnoreCase("FWD")) {
                     System.out.println();
@@ -574,4 +574,3 @@ public class Main {
         playing(new LinkedList<Song>());
     }
 }
-
