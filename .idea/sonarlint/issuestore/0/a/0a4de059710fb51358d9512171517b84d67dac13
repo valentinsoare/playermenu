@@ -1,5 +1,4 @@
 
-J	java:S108!")Either remove or fill this block of code.(û®þ’ýÿÿÿÿ8¸°ÊÕ³.
 _
-java:S22593"BA "NullPointerException" could be thrown; "song" is nullable here.(—¿Áø8‰”ðñ´.
-U	java:S106F"9Replace this use of System.out or System.err by a logger.(†µæÎ8¸°ÊÕ³.
+java:S22592"BA "NullPointerException" could be thrown; "song" is nullable here.(—¿Áø8‰”ðñ´.
+U	java:S106E"9Replace this use of System.out or System.err by a logger.(†µæÎ8¸°ÊÕ³.
